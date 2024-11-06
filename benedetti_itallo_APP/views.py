@@ -39,7 +39,5 @@ def modificar_inscripcion(request, id):
 
 def eliminar_inscripcion(request, id):
     inscripcion = Formulario.objects.get(id=id)  
-    if request.method == 'POST':
-        inscripcion.delete()
-        return redirect('listar_inscripciones')
-    return render(request, 'APP/confirmar_eliminacion.html', {'inscripcion': inscripcion})
+    inscripcion.delete()
+    return redirect('listar_inscripciones')
